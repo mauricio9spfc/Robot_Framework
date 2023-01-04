@@ -2,12 +2,15 @@
 Library   SeleniumLibrary
 
 ** Variables **
-${input_name}          id:name
-${input_phone}         id:phone
-${input_email}         id:email
-${input_password}      id:password         
-${textarea_address}    id:address
-${button_submit}       name:submit
+${input_name}               id:name
+${input_phone}              id:phone
+${input_email}              id:email
+${input_password}           id:password         
+${textarea_address}         id:address
+${button_submit}            name:submit
+${input_wednesday}          id:wednesday 
+${input_male}               id:male 
+
 
 
 ** Keywords **
@@ -27,9 +30,22 @@ clicar em submit
 fechar navegador   
     Close Browser
 
+escolher o genero masculino
+    Select Radio Button    optionsRadios  male   
+escolher o dia Wednesday
+    Select Checkbox        ${input_wednesday}
+
 ** Test Cases **
 Cenario 1: Preencher formulário
         abrir navegador e acessar o site
         preencher campos
         clicar em submit
+        Sleep    2s
         fechar navegador
+
+Cenario 2: Selecionar CheckBox e Radio Button 
+        abrir navegador e acessar o site
+        escolher o genero masculino
+        escolher o dia Wednesday    
+        Sleep    2s  
+        fechar navegador 
